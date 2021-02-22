@@ -1,0 +1,33 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!--Constantes que cambian el comportamiento del filtro de Struts 2 -->
+    <!-- Constante que nos indica que estamos en el proceso de desarrollo y proporciona más
+    mensajes sobre cómo va el desarrollo de nuestra aplicación y nos muestra los errores de forma
+    más detalada.-->
+    <constant name="struts.devMode" value="true" />
+    <!--sta constante permite que cuando modifiquemos los archivos de configuración de 
+    Struts 2 no tengamos que volver a hacer un deploy de la aplicación para que los cambios tomen efecto.-->
+    <constant name="struts.configuration.xml.reload" value="true" />
+    <!-- Cada paquete debe tener un nombre y heredar de otro paquete. -->
+    <package name="demo-struts" extends="struts-default">
+        <!--Con este Action estamos diciendo que se ejecute la action de nombre index y el result sea success
+        y le devuelva al usuario la página index.jsp como respuesta de su petición.-->
+        <action name="index">
+            <result name="success">/index.jsp</result>
+        </action>
+        
+        <!--Agregamos el Action correspondiente a SaludoAction.java y tiene que tener un name
+        diferente a "saludo", porque con "saludo" no funciona. -->
+        <action name="saludamos" class="actions.SaludoAction">
+            <result name="success">/saludo.jsp</result>
+        </action>
+        <action name="saludoUsuario" class="actions.SaludoUsuarioAction">
+            <result name="success">/saludoUsuario.jsp</result>
+        </action>
+        
+        
+    </package>
+</struts>

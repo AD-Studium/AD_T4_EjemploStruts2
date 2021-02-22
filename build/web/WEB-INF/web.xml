@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <filter>
+        <filter-name>struts2</filter-name>
+    <!-- Nombre de la clase del filtro de Struts 2 que se usaba antiguamente y que está deprecated:
+        <filter-class>org.apache.struts2.dispatcher.FilterDispatcher</filter-class> 
+    -->
+    <!--Nombre de la clase del filtro de Struts 2 -->
+        <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+    </filter>
+    
+    <!--Indicamos qué peticiones queremos que pasen por el filtro de Struts 2 y al poner /* estamos indicando
+    que sean todas las peticiones que se hacen a nuestro sitio web, las que deben pasar por el filtro.-->
+    <filter-mapping>
+        <filter-name>struts2</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+    
+</web-app>
